@@ -1,0 +1,77 @@
+/** @format */
+
+.nav {
+  background: linear-gradient(135deg, #0f172a 0%, #111827 100%);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.22);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav .logo {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.nav .enlaces {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav .enlaces a {
+  color: #f8fafc;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav .enlaces a:hover {
+  background: rgba(167, 139, 250, 0.12);
+  color: #e9d5ff;
+  transform: translateY(-1px);
+}
+
+.cart-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  background: #f59e0b;
+  color: #111827;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.nav .btn-contacto {
+  background: linear-gradient(135deg, #ff6b6b, #ff8a65);
+  color: #ffffff;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.25);
+  transition: all 0.25s ease;
+}
+
+.nav .btn-contacto:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(255, 107, 107, 0.35);
+}

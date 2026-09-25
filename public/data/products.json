@@ -1,0 +1,38 @@
+[
+  {
+    "id": "wsd",
+    "name": "Secador Spray",
+    "code": "wsd",
+    "image": "/images/Secador Spray.jpg",
+    "shortDescription": "Configuraciones de etapa simple o multi-etapa MSD para polvos aglomerados libres de estatica",
+    "detalle tecnico": "Atomizacion mediante disco rotativo de alta velocidad con sistemas de boquillas a presion, en acero inoxidable AISI 304 y 316L",
+    "application": "ingredientes alimenticios, derivados lacteos, productos quimicos y farmacéuticos."
+  },
+  {
+    "id": "wff",
+    "name": "Evaporador de Film Fino",
+    "code": "wff",
+    "image": "/images/Evaporador Falling Film.jpg",
+    "shortDescription": "Concentracion de soluciones acuosas y no acuosas, con alta eficiencia de transferencia de calor",
+    "detalle tecnico": "Configuracion de 1 a 6 efectos. Incorpora eyector de recompresion de vapor, sistema de limpieza CIP y control de temperatura de condensado",
+    "application": "Concentracion de leche entera, descremada, suero de leche, jugos de frutas, soluciones acuosas y no acuosas."
+  },
+  {
+    "id": "wfd",
+    "name": "Secador Flash",
+    "code": "wfd",
+    "image": "/images/Secador Flash.jpg",
+    "shortDescription": "Secado de polvos y granulos con alta eficiencia de transferencia de calor y masa",
+    "detalle tecnico": "Configuracion de lecho fluidizado con control de temperatura y humedad, sistema de filtracion y recoleccion de polvo, en acero inoxidable AISI 304 y 316L",
+    "application": "Secado de productos alimenticios, quimicos y farmacéuticos."
+  },
+  {
+    "id": "wrd",
+    "name": "Secador Rotativo",
+    "code": "wrd",
+    "image": "/images/Secador Rotativo.jpg",
+    "shortDescription": "Funcionamiento continuo, maxima robustez mecanica",
+    "detalle tecnico": "Tambor rotativo horizontal con inclinacion regulable",
+    "application": "Solidos granulares,fertilizantes y materiales pastosos."
+  }
+]
