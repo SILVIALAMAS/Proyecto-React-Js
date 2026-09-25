@@ -5,7 +5,17 @@
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.75rem;
   align-items: stretch;
 }
+
+@media (max-width: 640px) {
+  .item-list {
+    grid-template-columns: 1fr;
+  }
+}
+/* @media sirve para significa: cuando la pantalla mida 640 píxeles
+ de ancho o menos, muestra los productos en una sola columna. En pantallas más
+  anchas se conserva la regla principal de dos columnas. Así la cuadrícula se 
+  adapta a móviles.

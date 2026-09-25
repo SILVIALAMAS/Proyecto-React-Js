@@ -8,7 +8,7 @@ export const ItemList = ({ products }) => {
   if (!products.length) return <p>No hay productos</p>;
 
   return (
-    <div className="products-container">
+    <div className="item-list">
       {products.map((product) => (
         <Link key={product.id} to={`/product/${product.id}`}>
           <Item product={product} />
