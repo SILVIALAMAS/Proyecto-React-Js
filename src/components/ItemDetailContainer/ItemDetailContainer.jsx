@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useCart } from "../../context/useCart";
+import { useCart } from "../../context/CartContext";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 
 export const ItemDetailContainer = () => {

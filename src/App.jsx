@@ -7,7 +7,7 @@ import { Header } from "./components/Header/Header";
 import { ItemListContainer } from "./components/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 import { CartView } from "./components/Cart/CartView";
-import { useCart } from "./context/useCart";
+import { useCart } from "./context/CartContext";
 
 function App() {
   const { getTotalItems } = useCart();

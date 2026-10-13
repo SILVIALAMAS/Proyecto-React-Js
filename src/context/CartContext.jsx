@@ -1,8 +1,24 @@
 /** @format */
 
-import { useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "./cartContext";
+/* -------------------------------------------------------------------------- */
+/*                              CREAMOS CONTEXTO                              */
+/* -------------------------------------------------------------------------- */
+const CartContext = createContext();
+
+/* -------------------------------------------------------------------------- */
+/*                                 CUSTOM HOOK                                */
+/* -------------------------------------------------------------------------- */
+// eslint-disable-next-line react-refresh/only-export-components
+export const useCart = () => {
+  const context = useContext(CartContext);
+
+  if (!context) {
+    throw new Error("useCart debe usarse dentro de un CartProvider");
+  }
+  return context;
+};
 
 /* -------------------------------------------------------------------------- */
 /*                                  PROVEEDOR                                 */

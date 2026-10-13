@@ -1,6 +1,6 @@
 /** @format */
 
-import { useCart } from "../../context/useCart";
+import { useCart } from "../../context/CartContext";
 
 export const CartSummary = () => {
   const { getCartTotal, checkout } = useCart();

@@ -1,6 +1,6 @@
 /** @format */
 
-import { useCart } from "../../context/useCart";
+import { useCart } from "../../context/CartContext";
 import { Item } from "../Item/Item";
 
 export const CartItem = ({ item }) => {

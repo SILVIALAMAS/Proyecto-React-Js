@@ -1,6 +1,6 @@
 /** @format */
 
-import { useCart } from "../../context/useCart";
+import { useCart } from "../../context/CartContext";
 import "./Cart.css";
 import { CartList } from "./CartList";
 import { CartSummary } from "./CartSummary";
