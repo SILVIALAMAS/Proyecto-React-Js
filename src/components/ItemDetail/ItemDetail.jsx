@@ -3,6 +3,12 @@
 import "./ItemDetail.css";
 
 export const ItemDetail = ({ item, onAddToCart }) => {
+  const price = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    currencyDisplay: "code",
+  }).format(item.price);
+
   return (
     <section className="item-detail">
       <div className="item-detail__card">
@@ -11,7 +17,8 @@ export const ItemDetail = ({ item, onAddToCart }) => {
         <div className="item-detail__info">
           <span className="item-detail__category">Equipo industrial</span>
           <h1 className="item-detail__title">{item.name}</h1>
-          <p className="item-detail__price">Código: {item.code}</p>
+          <p className="item-detail__price">{price}</p>
+          <p>Código: {item.code}</p>
           <p className="item-detail__description">{item.shortDescription}</p>
 
           <div className="item-detail__actions">

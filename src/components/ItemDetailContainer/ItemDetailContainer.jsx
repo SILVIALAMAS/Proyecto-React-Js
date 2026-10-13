@@ -2,37 +2,43 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useCart } from "../../context/useCart";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 
-export const ItemDetailContainer = ({ onAddToCart }) => {
+export const ItemDetailContainer = () => {
   const { id } = useParams();
-  const [itemDetail, setItemDetail] = useState(null);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { addItem } = useCart();
+  const [detail, setDetail] = useState({ id: null, item: null, error: null });
+  const loading = detail.id !== id;
 
   useEffect(() => {
-    setItemDetail(null);
-    setLoading(true);
-    setError(null);
+    let isActive = true;
 
     fetch("/data/products.json")
       .then((res) => res.json())
       .then((data) => {
         const item = data.find((prod) => String(prod.id) === id);
         if (item) {
-          setItemDetail(item);
+          if (isActive) setDetail({ id, item, error: null });
         } else {
           throw new Error("Elemento no encontrado");
         }
       })
-      .catch((error) => setError(error.message))
-      .finally(() => setLoading(false));
+      .catch((error) => {
+        if (isActive) setDetail({ id, item: null, error: error.message });
+      });
+
+    return () => {
+      isActive = false;
+    };
   }, [id]);
 
   if (loading) return <p className="cargando">Cargando...</p>;
-  if (error) return <p className="error">{error}</p>;
-  if (!itemDetail)
+  if (detail.error) return <p className="error">{detail.error}</p>;
+  if (!detail.item)
     return <p className="no-encontrado">Producto no encontrado</p>;
 
-  return <ItemDetail item={itemDetail} onAddToCart={onAddToCart} />;
+  return (
+    <ItemDetail item={detail.item} onAddToCart={() => addItem(detail.item)} />
+  );
 };
