@@ -7,21 +7,29 @@
 .login-form {
   max-width: 420px;
   width: 100%;
-
-  margin: 4rem auto;
-  padding: 2rem;
-
+  margin: clamp(2rem, 8vh, 5rem) auto;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  position: relative;
+  overflow: hidden;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
 
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.login-form::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: linear-gradient(90deg, var(--teal), var(--accent));
 }
 
 .login-form h2 {
   margin-bottom: 2rem;
   text-align: center;
-  color: var(--text);
+  color: var(--primary);
+  font-size: 1.8rem;
 }
 
 .login-form .form-group {
@@ -33,33 +41,32 @@
 
 .login-form label {
   font-weight: 600;
-  color: var(--text);
+  color: var(--primary);
 }
 
 .login-form input {
   width: 100%;
   padding: 0.8rem 1rem;
-
-  background: var(--card);
+  background: #fbfdfd;
   color: var(--text);
-
   border: 1px solid var(--border);
-  border-radius: 8px;
-
+  border-radius: 11px;
   font: inherit;
-
-  transition: 0.25s;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
 .login-form input:focus {
   outline: none;
-
-  border-color: var(--primary);
-
-  box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.2);
+  border-color: var(--teal);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(24, 183, 165, 0.14);
 }
+
 .login-form input::placeholder {
-  color: #b9c2d1;
+  color: #8da1a3;
   opacity: 1;
 }
 
