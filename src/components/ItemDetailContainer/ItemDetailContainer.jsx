@@ -2,43 +2,44 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useCart } from "../../context/CartContext";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
+import { getProductById } from "../../services/productsService";
+import { useCart } from "../../context/CartContext";
 
 export const ItemDetailContainer = () => {
   const { id } = useParams();
   const { addItem } = useCart();
-  const [detail, setDetail] = useState({ id: null, item: null, error: null });
-  const loading = detail.id !== id;
+  const [itemDetail, setItemDetail] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let isActive = true;
+    //Si volvieramos a renderizar el componente porque usamos "productos relacionados"
+    //Se tendria que volver a renderizar ItemDetailContainer con el nuevo detalle.
+    //Entonces: el array de dependencias del useEffect debe llevar el "id" y deberiamos
+    //Resetear los estados de loading y error
+    //saque el fetch de aca y lo puse en el service para que quede mas prolijo
+    setItemDetail(null);
+    setLoading(true);
+    setError(null);
 
-    fetch("/data/products.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const item = data.find((prod) => String(prod.id) === id);
-        if (item) {
-          if (isActive) setDetail({ id, item, error: null });
-        } else {
-          throw new Error("Elemento no encontrado");
-        }
-      })
-      .catch((error) => {
-        if (isActive) setDetail({ id, item: null, error: error.message });
-      });
-
-    return () => {
-      isActive = false;
-    };
+    //Usamos la funcion del productsService.js
+    getProductById(id)
+      .then((data) => setItemDetail(data))
+      .catch((error) => setError(error.message))
+      .finally(() => setLoading(false));
   }, [id]);
 
-  if (loading) return <p className="cargando">Cargando...</p>;
-  if (detail.error) return <p className="error">{detail.error}</p>;
-  if (!detail.item)
-    return <p className="no-encontrado">Producto no encontrado</p>;
+  if (loading) return <p>Cargando...</p>;
+  if (error) return <p>{error}</p>;
+  if (!itemDetail) return <p>Producto no encontrado</p>;
 
   return (
-    <ItemDetail item={detail.item} onAddToCart={() => addItem(detail.item)} />
+    <section>
+      <h1>Detalles del producto</h1>
+      <div className="products-container">
+        <ItemDetail item={itemDetail} onAddToCart={() => addItem(itemDetail)} />
+      </div>
+    </section>
   );
 };

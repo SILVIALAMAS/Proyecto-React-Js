@@ -15,7 +15,9 @@ export const ItemDetail = ({ item, onAddToCart }) => {
         <img className="item-detail__image" src={item.image} alt={item.name} />
 
         <div className="item-detail__info">
-          <span className="item-detail__category">Equipo industrial</span>
+          {item.category && (
+            <span className="item-detail__category">{item.category}</span>
+          )}
           <h1 className="item-detail__title">{item.name}</h1>
           <p className="item-detail__price">{price}</p>
           <p>Código: {item.code}</p>

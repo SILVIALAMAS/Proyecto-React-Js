@@ -10,7 +10,6 @@ const CartContext = createContext();
 /* -------------------------------------------------------------------------- */
 /*                                 CUSTOM HOOK                                */
 /* -------------------------------------------------------------------------- */
-// eslint-disable-next-line react-refresh/only-export-components
 export const useCart = () => {
   const context = useContext(CartContext);
 

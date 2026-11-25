@@ -12,6 +12,9 @@ export const Item = ({ product, children }) => {
   return (
     <article className="card">
       <img src={product.image} alt={product.name} />
+      {product.category && (
+        <span className="item__category">{product.category}</span>
+      )}
       <h2>{product.name}</h2>
       <p className="codigo">{product.code}</p>
       <p className="item-price">{price}</p>
